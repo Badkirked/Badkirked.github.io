@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Turpentine</title>
+    <style>
+        .thumbnail {
+            width: 150px;
+            height: auto;
+            cursor: pointer;
+            margin: 5px;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            padding-top: 60px;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgb(0,0,0);
+            background-color: rgba(0,0,0,0.9);
+        }
+
+        .modal-content {
+            margin: auto;
+            display: block;
+            width: 80%;
+            max-width: 700px;
+        }
+
+        .modal-content {
+            animation-name: zoom;
+            animation-duration: 0.6s;
+        }
+
+        @keyframes zoom {
+            from {transform:scale(0)}
+            to {transform:scale(1)}
+        }
+
+        .close {
+            position: absolute;
+            top: 15px;
+            right: 35px;
+            color: #f1f1f1;
+            font-size: 40px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #bbb;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Turpentine</h1>
+    <p>Description of Turpentine wood species.</p>
+    <h2>Images</h2>
+    <div id="image-gallery">
+        <!-- Thumbnails will be inserted here by JavaScript -->
+    </div>
+
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <img class="modal-content" id="img01">
+    </div>
+
+    <a href="index.html">Back to Timber Species</a>
+
+    <script>
+        const images = [
+            { src: "images/Turpentine/Turpentine (1).jpg", annotation: "new", description: "Turpentine - New" },
+            { src: "images/Turpentine/Turpentine (2).jpg", annotation: "old", description: "Turpentine - Old" },
+            { src: "images/Turpentine/Turpentine (3).jpg", annotation: "new", description: "Turpentine - New" },
+            { src: "images/Turpentine/Turpentine (4).jpg", annotation: "old", description: "Turpentine - Old" },
+            { src: "images/Turpentine/Turpentine (5).jpg", annotation: "new", description: "Turpentine - New" },
+            { src: "images/Turpentine/Turpentine (6).jpg", annotation: "new", description: "Turpentine - New" },
+            { src: "images/Turpentine/Turpentine (7).jpg", annotation: "old", description: "Turpentine - Old" },
+            { src: "images/Turpentine/Turpentine (8).jpg", annotation: "new", description: "Turpentine - New" },
+            { src: "images/Turpentine/Turpentine (9).jpg", annotation: "old", description: "Turpentine - Old" },
+            { src: "images/Turpentine/Turpentine (10).jpg", annotation: "new", description: "Turpentine - New" },
+            { src: "images/Turpentine/Turpentine (11).jpg", annotation: "old", description: "Turpentine - Old" },
+            { src: "images/Turpentine/Turpentine (12).jpg", annotation: "new", description: "Turpentine - New" },
+            { src: "images/Turpentine/Turpentine (13).jpg", annotation: "new", description: "Turpentine - New" },
+            { src: "images/Turpentine/Turpentine (14).jpg", annotation: "old", description: "Turpentine - Old" },
+            { src: "images/Turpentine/Turpentine (15).jpg", annotation: "new", description: "Turpentine - New" },
+            { src: "images/Turpentine/Turpentine (16).jpg", annotation: "old", description: "Turpentine - Old" },
+            { src: "images/Turpentine/Turpentine (17).jpg", annotation: "new", description: "Turpentine - New" },
+            { src: "images/Turpentine/Turpentine (18).jpg", annotation: "old", description: "Turpentine - Old" }
+        ];
+
+        // Sort images with "new" first and "old" last
+        images.sort((a, b) => a.annotation.localeCompare(b.annotation));
+
+        const gallery = document.getElementById('image-gallery');
+        images.forEach(image => {
+            const imgElement = document.createElement('img');
+            imgElement.src = image.src;
+            imgElement.className = 'thumbnail';
+            imgElement.title = image.description;  // Add description for tooltip
+            imgElement.onclick = () => openModal(imgElement);
+            gallery.appendChild(imgElement);
+        });
+
+        function openModal(element) {
+            document.getElementById('myModal').style.display = "block";
+            document.getElementById('img01').src = element.src;
+        }
+
+        function closeModal() {
+            document.getElementById('myModal').style.display = "none";
+        }
+    </script>
+</body>
+</html>

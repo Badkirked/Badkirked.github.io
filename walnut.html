@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Walnut</title>
+    <style>
+        .thumbnail {
+            width: 150px;
+            height: auto;
+            cursor: pointer;
+            margin: 5px;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            padding-top: 60px;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgb(0,0,0);
+            background-color: rgba(0,0,0,0.9);
+        }
+
+        .modal-content {
+            margin: auto;
+            display: block;
+            width: 80%;
+            max-width: 700px;
+        }
+
+        .modal-content {
+            animation-name: zoom;
+            animation-duration: 0.6s;
+        }
+
+        @keyframes zoom {
+            from {transform:scale(0)}
+            to {transform:scale(1)}
+        }
+
+        .close {
+            position: absolute;
+            top: 15px;
+            right: 35px;
+            color: #f1f1f1;
+            font-size: 40px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #bbb;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Walnut</h1>
+    <p>Walnut is a rich, dark wood known for its deep brown color and straight, open grain. It is a dense and durable hardwood, commonly used in fine furniture and flooring. Walnut is highly prized for its beautiful finish and excellent stability. Its best feature is its luxurious appearance.</p>
+    <h2>Images</h2>
+    <div id="image-gallery">
+        <!-- Thumbnails will be inserted here by JavaScript -->
+    </div>
+
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <img class="modal-content" id="img01">
+    </div>
+
+    <a href="index.html">Back to Timber Species</a>
+
+    <script>
+        const images = [
+            { src: "images/Walnut/Walnut (1).jpg", description: "Walnut - Image 1" },
+            { src: "images/Walnut/Walnut (2).jpg", description: "Walnut - Image 2" },
+            { src: "images/Walnut/Walnut (3).jpg", description: "Walnut - Image 3" },
+            { src: "images/Walnut/Walnut (4).jpg", description: "Walnut - Image 4" },
+            { src: "images/Walnut/Walnut (5).jpg", description: "Walnut - Image 5" },
+            { src: "images/Walnut/Walnut (6).jpg", description: "Walnut - Image 6" },
+            { src: "images/Walnut/Walnut (7).jpg", description: "Walnut - Image 7" },
+            { src: "images/Walnut/Walnut (8).jpg", description: "Walnut - Image 8" },
+            { src: "images/Walnut/Walnut (9).jpg", description: "Walnut - Image 9" },
+            { src: "images/Walnut/Walnut (10).jpg", description: "Walnut - Image 10" },
+            { src: "images/Walnut/Walnut (11).jpg", description: "Walnut - Image 11" },
+            { src: "images/Walnut/Walnut (12).jpg", description: "Walnut - Image 12" },
+            { src: "images/Walnut/Walnut (13).jpg", description: "Walnut - Image 13" },
+            { src: "images/Walnut/Walnut (14).jpg", description: "Walnut - Image 14" },
+            { src: "images/Walnut/Walnut (15).jpg", description: "Walnut - Image 15" },
+            { src: "images/Walnut/Walnut (16).jpg", description: "Walnut - Image 16" },
+            { src: "images/Walnut/Walnut (17).jpg", description: "Walnut - Image 17" },
+            { src: "images/Walnut/Walnut (18).jpg", description: "Walnut - Image 18" }
+        ];
+
+        const gallery = document.getElementById('image-gallery');
+        images.forEach(image => {
+            const imgElement = document.createElement('img');
+            imgElement.src = image.src;
+            imgElement.className = 'thumbnail';
+            imgElement.title = image.description;  // Add description for tooltip
+            imgElement.onclick = () => openModal(imgElement);
+            gallery.appendChild(imgElement);
+        });
+
+        function openModal(element) {
+            document.getElementById('myModal').style.display = "block";
+            document.getElementById('img01').src = element.src;
+        }
+
+        function closeModal() {
+            document.getElementById('myModal').style.display = "none";
+        }
+    </script>
+</body>
+</html>
