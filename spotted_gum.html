@@ -79,24 +79,21 @@
 
     <script>
         const images = [
-            { src: "images/Spotted_Gum/Spotted_Gum (1).jpg", description: "Spotted Gum - Image 1" },
-            { src: "images/Spotted_Gum/Spotted_Gum (2).jpg", description: "Spotted Gum - Image 2" },
-            { src: "images/Spotted_Gum/Spotted_Gum (3).jpg", description: "Spotted Gum - Image 3" },
-            { src: "images/Spotted_Gum/Spotted_Gum (4).jpg", description: "Spotted Gum - Image 4" },
-            { src: "images/Spotted_Gum/Spotted_Gum (5).jpg", description: "Spotted Gum - Image 5" },
-            { src: "images/Spotted_Gum/Spotted_Gum (6).jpg", description: "Spotted Gum - Image 6" },
-            { src: "images/Spotted_Gum/Spotted_Gum (7).jpg", description: "Spotted Gum - Image 7" },
-            { src: "images/Spotted_Gum/Spotted_Gum (8).jpg", description: "Spotted Gum - Image 8" },
-            { src: "images/Spotted_Gum/Spotted_Gum (9).jpg", description: "Spotted Gum - Image 9" },
-            { src: "images/Spotted_Gum/Spotted_Gum (10).jpg", description: "Spotted Gum - Image 10" },
-            { src: "images/Spotted_Gum/Spotted_Gum (11).jpg", description: "Spotted Gum - Image 11" },
-            { src: "images/Spotted_Gum/Spotted_Gum (12).jpg", description: "Spotted Gum - Image 12" },
-            { src: "images/Spotted_Gum/Spotted_Gum (13).jpg", description: "Spotted Gum - Image 13" },
-            { src: "images/Spotted_Gum/Spotted_Gum (14).jpg", description: "Spotted Gum - Image 14" },
-            { src: "images/Spotted_Gum/Spotted_Gum (15).jpg", description: "Spotted Gum - Image 15" },
-            { src: "images/Spotted_Gum/Spotted_Gum (16).jpg", description: "Spotted Gum - Image 16" },
-            { src: "images/Spotted_Gum/Spotted_Gum (17).jpg", description: "Spotted Gum - Image 17" },
-            { src: "images/Spotted_Gum/Spotted_Gum (18).jpg", description: "Spotted Gum - Image 18" }
+            { src: "images/Spotted_Gum/Spotted_Gum (1).jpg", description: "Spotted Gum floor, New, Coated, Natural, Not Yellowed, Clean. Location: New South Wales (NSW)" },
+            { src: "images/Spotted_Gum/Spotted_Gum (2).jpg", description: "Spotted Gum floor, New, Coated, Natural, Not Yellowed, Clean. Location: New South Wales (NSW)" },
+            { src: "images/Spotted_Gum/Spotted_Gum (3).jpg", description: "Spotted Gum floor, New, Coated, Natural, Not Yellowed, Clean. Location: New South Wales (NSW)" },
+            { src: "images/Spotted_Gum/Spotted_Gum (4).jpg", description: "Spotted Gum floor, New, Coated, Natural, Not Yellowed, Clean. Location: New South Wales (NSW)" },
+            { src: "images/Spotted_Gum/Spotted_Gum (5).jpg", description: "Spotted Gum floor, New, Coated, Natural, Not Yellowed, Clean. Location: New South Wales (NSW)" },
+            { src: "images/Spotted_Gum/Spotted_Gum (6).jpg", description: "Spotted Gum floor, New, Coated, Natural, Not Yellowed, Clean. Location: New South Wales (NSW)" },
+            { src: "images/Spotted_Gum/Spotted_Gum (7).jpg", description: "Spotted Gum floor, New, Coated, Natural, Not Yellowed, Clean. Location: New South Wales (NSW)" },
+            { src: "images/Spotted_Gum/Spotted_Gum (8).jpg", description: "Spotted Gum floor, New, Coated, Natural, Not Yellowed, Clean. Location: New South Wales (NSW)" },
+            { src: "images/Spotted_Gum/Spotted_Gum (9).jpg", description: "Spotted Gum floor, New, Coated, Natural, Not Yellowed, Clean. Location: New South Wales (NSW)" },
+            { src: "images/Spotted_Gum/Spotted_Gum (10).jpg", description: "Spotted Gum floor, New, Coated, Natural, Not Yellowed, Clean. Location: New South Wales (NSW)" },
+            { src: "images/Spotted_Gum/Spotted_Gum (11).jpg", description: "Spotted Gum floor, New, Coated, Natural, Not Yellowed, Clean. Location: New South Wales (NSW)" },
+            { src: "images/Spotted_Gum/Spotted_Gum (12).jpg", description: "Spotted Gum floor, New, Coated, Natural, Not Yellowed, Clean. Location: New South Wales (NSW)" },
+            { src: "images/Spotted_Gum/Spotted_Gum (13).jpg", description: "Spotted Gum floor, New, Coated, Natural, Not Yellowed, Clean. Location: New South Wales (NSW)" },
+            { src: "images/Spotted_Gum/Spotted_Gum (14).jpg", description: "Spotted Gum floor, New, Coated, Natural, Not Yellowed, Clean. Location: New South Wales (NSW)" },
+            { src: "images/Spotted_Gum/Spotted_Gum (15).jpg", description: "Spotted Gum floor, New, Coated, Natural, Not Yellowed, Clean. Location: New South Wales (NSW)" }
         ];
 
         const gallery = document.getElementById('image-gallery');
@@ -104,6 +101,7 @@
             const imgElement = document.createElement('img');
             imgElement.src = image.src;
             imgElement.className = 'thumbnail';
+            imgElement.alt = image.description;  // Add alt text for accessibility
             imgElement.title = image.description;  // Add description for tooltip
             imgElement.onclick = () => openModal(imgElement);
             gallery.appendChild(imgElement);
