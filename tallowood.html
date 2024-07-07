@@ -102,24 +102,24 @@
 
     <script>
         const images = [
-            { src: "images/Tallowood/Tallowood (1).jpg", description: "Tallowood - Image 1" },
-            { src: "images/Tallowood/Tallowood (2).jpg", description: "Tallowood - Image 2" },
-            { src: "images/Tallowood/Tallowood (3).jpg", description: "Tallowood - Image 3" },
-            { src: "images/Tallowood/Tallowood (4).jpg", description: "Tallowood - Image 4" },
-            { src: "images/Tallowood/Tallowood (5).jpg", description: "Tallowood - Image 5" },
-            { src: "images/Tallowood/Tallowood (6).jpg", description: "Tallowood - Image 6" },
-            { src: "images/Tallowood/Tallowood (7).jpg", description: "Tallowood - Image 7" },
-            { src: "images/Tallowood/Tallowood (8).jpg", description: "Tallowood - Image 8" },
-            { src: "images/Tallowood/Tallowood (9).jpg", description: "Tallowood - Image 9" },
-            { src: "images/Tallowood/Tallowood (10).jpg", description: "Tallowood - Image 10" },
-            { src: "images/Tallowood/Tallowood (11).jpg", description: "Tallowood - Image 11" },
-            { src: "images/Tallowood/Tallowood (12).jpg", description: "Tallowood - Image 12" },
-            { src: "images/Tallowood/Tallowood (13).jpg", description: "Tallowood - Image 13" },
-            { src: "images/Tallowood/Tallowood (14).jpg", description: "Tallowood - Image 14" },
-            { src: "images/Tallowood/Tallowood (15).jpg", description: "Tallowood - Image 15" },
-            { src: "images/Tallowood/Tallowood (16).jpg", description: "Tallowood - Image 16" },
-            { src: "images/Tallowood/Tallowood (17).jpg", description: "Tallowood - Image 17" },
-            { src: "images/Tallowood/Tallowood (18).jpg", description: "Tallowood - Image 18" }
+            { src: "images/Tallowood/Tallowood (1).jpg", description: "Tallowood floor, New, Coated, Natural, Not Yellowed, Clean. Location: New South Wales" },
+            { src: "images/Tallowood/Tallowood (2).jpg", description: "Tallowood floor, Old, Coated, Natural, Yellowed, Dirty. Location: New South Wales" },
+            { src: "images/Tallowood/Tallowood (3).jpg", description: "Tallowood floor, New, Coated, Natural, Not Yellowed, Clean. Location: New South Wales" },
+            { src: "images/Tallowood/Tallowood (4).jpg", description: "Tallowood floor, Old, Coated, Natural, Yellowed, Dirty. Location: New South Wales" },
+            { src: "images/Tallowood/Tallowood (5).jpg", description: "Tallowood floor, New, Coated, Natural, Not Yellowed, Clean. Location: New South Wales" },
+            { src: "images/Tallowood/Tallowood (6).jpg", description: "Tallowood floor, OLD, Coated, Natural, Yellowed, Dirty. Location: New South Wales" },
+            { src: "images/Tallowood/Tallowood (7).jpg", description: "Tallowood floor, New, Coated, Natural, Not Yellowed, Clean. Location: New South Wales" },
+            { src: "images/Tallowood/Tallowood (8).jpg", description: "Tallowood floor, Old, Coated, Natural, Yellowed, Dirty. Location: New South Wales" },
+            { src: "images/Tallowood/Tallowood (9).jpg", description: "Tallowood floor, New, Coated, Natural, Not Yellowed, Clean. Location: New South Wales" },
+            { src: "images/Tallowood/Tallowood (10).jpg", description: "Tallowood floor, New, Coated, Natural, Not Yellowed, Clean. Location: New South Wales" },
+            { src: "images/Tallowood/Tallowood (11).jpg", description: "Tallowood floor, New, Coated, Natural, Not Yellowed, Clean. Location: New South Wales" },
+            { src: "images/Tallowood/Tallowood (12).jpg", description: "Tallowood floor, New, Coated, Natural, Not Yellowed, Clean. Location: New South Wales" },
+            { src: "images/Tallowood/Tallowood (13).jpg", description: "Tallowood floor, New, Coated, Natural, Not Yellowed, Clean. Location: New South Wales" },
+            { src: "images/Tallowood/Tallowood (14).jpg", description: "Tallowood floor, New, Coated, Natural, Not Yellowed, Clean. Location: New South Wales" },
+            { src: "images/Tallowood/Tallowood (15).jpg", description: "Tallowood floor, New, Coated, Natural, Not Yellowed, Clean. Location: New South Wales" },
+            { src: "images/Tallowood/Tallowood (16).jpg", description: "Tallowood floor, New, Coated, Natural, Not Yellowed, Clean. Location: New South Wales" },
+            { src: "images/Tallowood/Tallowood (17).jpg", description: "Tallowood floor, Old, Coated, Natural, Yellowed, Dirty. Location: New South Wales" },
+            { src: "images/Tallowood/Tallowood (18).jpg", description: "Tallowood floor, New, Coated, Natural, Not Yellowed, Clean. Location: New South Wales" },
         ];
 
         const gallery = document.getElementById('image-gallery');
@@ -127,6 +127,7 @@
             const imgElement = document.createElement('img');
             imgElement.src = image.src;
             imgElement.className = 'thumbnail';
+            imgElement.alt = image.description;
             imgElement.title = image.description;  // Add description for tooltip
             imgElement.onclick = () => openModal(imgElement);
             gallery.appendChild(imgElement);
