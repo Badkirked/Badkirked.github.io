@@ -59,11 +59,17 @@
             text-decoration: none;
             cursor: pointer;
         }
+
+        .description {
+            margin-top: 10px;
+            font-size: 14px;
+            color: white;
+            text-align: center;
+        }
     </style>
 </head>
 <body>
     <h1>Spotted Gum</h1>
-    <p>Spotted Gum is a strong and durable timber with a striking color range from light brown to dark chocolate. It features a wavy grain pattern and a fine texture. This dense wood is commonly used in flooring and is highly regarded for its natural beauty.</p>
     <h2>Images</h2>
     <div id="image-gallery">
         <!-- Thumbnails will be inserted here by JavaScript -->
@@ -73,6 +79,7 @@
     <div id="myModal" class="modal">
         <span class="close" onclick="closeModal()">&times;</span>
         <img class="modal-content" id="img01">
+        <div id="caption" class="description"></div>
     </div>
 
     <a href="index.html">Back to Timber Species</a>
@@ -102,19 +109,40 @@
             imgElement.src = image.src;
             imgElement.className = 'thumbnail';
             imgElement.alt = image.description;  // Add alt text for accessibility
-            imgElement.title = image.description;  // Add description for tooltip
-            imgElement.onclick = () => openModal(imgElement);
+            imgElement.onclick = () => openModal(image);
             gallery.appendChild(imgElement);
         });
 
-        function openModal(element) {
+        function openModal(image) {
             document.getElementById('myModal').style.display = "block";
-            document.getElementById('img01').src = element.src;
+            document.getElementById('img01').src = image.src;
+            document.getElementById('caption').textContent = image.description;
         }
 
         function closeModal() {
             document.getElementById('myModal').style.display = "none";
         }
     </script>
+
+    <h2>Timber Details</h2>
+    <p><strong>Name:</strong> Spotted Gum</p>
+    <p><strong>Botanical Name:</strong> Corymbia maculata, Corymbia citriodora, Corymbia henryi</p>
+    <p><strong>Alternate Names:</strong> Spotted Irongum, Lemon-scented Gum</p>
+    <p><strong>Location:</strong> Grown primarily in New South Wales, Queensland, and Victoria</p>
+    <p><strong>Description:</strong> Spotted Gum is a strong and durable timber with a striking color range from light brown to dark chocolate. It features a wavy grain pattern and a fine texture. This dense wood is commonly used in flooring and is highly regarded for its natural beauty.</p>
+    <p><strong>Pros:</strong></p>
+    <ul>
+        <li>Highly durable and hard-wearing</li>
+        <li>Attractive color variations</li>
+        <li>High resistance to fire, termites, and decay</li>
+        <li>Excellent dimensional stability</li>
+    </ul>
+    <p><strong>Cons:</strong></p>
+    <ul>
+        <li>Can be difficult to work with due to its density</li>
+        <li>May require pre-drilling for nails and screws</li>
+        <li>Higher cost compared to some other hardwoods</li>
+    </ul>
+    <p><strong>Scarcity:</strong> Readily available in Australia, with sustainable sourcing practices in place.</p>
 </body>
 </html>

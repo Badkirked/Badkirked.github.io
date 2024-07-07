@@ -59,11 +59,17 @@
             text-decoration: none;
             cursor: pointer;
         }
+
+        .description {
+            margin-top: 10px;
+            font-size: 14px;
+            color: white;
+            text-align: center;
+        }
     </style>
 </head>
 <body>
     <h1>Tasmanian Oak</h1>
-    <p>Tasmanian Oak is a popular flooring timber known for its light, warm colors ranging from pale cream to pink and reddish-brown. It has a straight grain pattern with a medium to coarse texture. It is moderately dense, making it durable yet easy to work with. Tasmanian Oak is common in Australia and is praised for its versatility and aesthetic appeal.</p>
     <h2>Images</h2>
     <div id="image-gallery">
         <!-- Thumbnails will be inserted here by JavaScript -->
@@ -73,53 +79,99 @@
     <div id="myModal" class="modal">
         <span class="close" onclick="closeModal()">&times;</span>
         <img class="modal-content" id="img01">
+        <div id="caption" class="description"></div>
     </div>
 
     <a href="index.html">Back to Timber Species</a>
 
     <script>
         const images = [
-            { src: "images/Tasmanian_Oak/Tasmanian_Oak (1).jpg", annotation: "new", description: "Tasmanian Oak - New" },
-            { src: "images/Tasmanian_Oak/Tasmanian_Oak (2).jpg", annotation: "old", description: "Tasmanian Oak - Old" },
-            { src: "images/Tasmanian_Oak/Tasmanian_Oak (3).jpg", annotation: "new", description: "Tasmanian Oak - New" },
-            { src: "images/Tasmanian_Oak/Tasmanian_Oak (4).jpg", annotation: "old", description: "Tasmanian Oak - Old" },
-            { src: "images/Tasmanian_Oak/Tasmanian_Oak (5).jpg", annotation: "new", description: "Tasmanian Oak - New" },
-            { src: "images/Tasmanian_Oak/Tasmanian_Oak (6).jpg", annotation: "new", description: "Tasmanian Oak - New" },
-            { src: "images/Tasmanian_Oak/Tasmanian_Oak (7).jpg", annotation: "old", description: "Tasmanian Oak - Old" },
-            { src: "images/Tasmanian_Oak/Tasmanian_Oak (8).jpg", annotation: "new", description: "Tasmanian Oak - New" },
-            { src: "images/Tasmanian_Oak/Tasmanian_Oak (9).jpg", annotation: "old", description: "Tasmanian Oak - Old" },
-            { src: "images/Tasmanian_Oak/Tasmanian_Oak (10).jpg", annotation: "new", description: "Tasmanian Oak - New" },
-            { src: "images/Tasmanian_Oak/Tasmanian_Oak (11).jpg", annotation: "old", description: "Tasmanian Oak - Old" },
-            { src: "images/Tasmanian_Oak/Tasmanian_Oak (12).jpg", annotation: "new", description: "Tasmanian Oak - New" },
-            { src: "images/Tasmanian_Oak/Tasmanian_Oak (13).jpg", annotation: "new", description: "Tasmanian Oak - New" },
-            { src: "images/Tasmanian_Oak/Tasmanian_Oak (14).jpg", annotation: "old", description: "Tasmanian Oak - Old" },
-            { src: "images/Tasmanian_Oak/Tasmanian_Oak (15).jpg", annotation: "new", description: "Tasmanian Oak - New" },
-            { src: "images/Tasmanian_Oak/Tasmanian_Oak (16).jpg", annotation: "old", description: "Tasmanian Oak - Old" },
-            { src: "images/Tasmanian_Oak/Tasmanian_Oak (17).jpg", annotation: "new", description: "Tasmanian Oak - New" },
-            { src: "images/Tasmanian_Oak/Tasmanian_Oak (18).jpg", annotation: "old", description: "Tasmanian Oak - Old" }
+            { 
+                src: "images/Tasmanian_Oak/Tasmanian_Oak (1).jpg", 
+                description: "Tasmanian Oak floor, New, Coated, Natural, Not Yellowed, Clean. Location: New South Wales (NSW)"
+            },
+            { 
+                src: "images/Tasmanian_Oak/Tasmanian_Oak (2).jpg", 
+                description: "Tasmanian Oak floor, New, Coated, Natural, Not Yellowed, Clean. Location: New South Wales (NSW)"
+            },
+            { 
+                src: "images/Tasmanian_Oak/Tasmanian_Oak (3).jpg", 
+                description: "Tasmanian Oak floor, New, Coated, Natural, Not Yellowed, Clean. Location: New South Wales (NSW)"
+            },
+            { 
+                src: "images/Tasmanian_Oak/Tasmanian_Oak (4).jpg", 
+                description: "Tasmanian Oak floor, New, Coated, Natural, Not Yellowed, Clean. Location: New South Wales (NSW)"
+            },
+            { 
+                src: "images/Tasmanian_Oak/Tasmanian_Oak (5).jpg", 
+                description: "Tasmanian Oak floor, New, Coated, Natural, Not Yellowed, Clean. Location: New South Wales (NSW)"
+            },
+            { 
+                src: "images/Tasmanian_Oak/Tasmanian_Oak (6).jpg", 
+                description: "Tasmanian Oak floor, New, Coated, Natural, Not Yellowed, Clean. Location: New South Wales (NSW)"
+            },
+            { 
+                src: "images/Tasmanian_Oak/Tasmanian_Oak (7).jpg", 
+                description: "Tasmanian Oak floor, New, Coated, Natural, Not Yellowed, Clean. Location: New South Wales (NSW)"
+            },
+            { 
+                src: "images/Tasmanian_Oak/Tasmanian_Oak (8).jpg", 
+                description: "Tasmanian Oak floor, New, Coated, Natural, Not Yellowed, Clean. Location: New South Wales (NSW)"
+            },
+            { 
+                src: "images/Tasmanian_Oak/Tasmanian_Oak (9).jpg", 
+                description: "Tasmanian Oak floor, New, Coated, Natural, Not Yellowed, Clean. Location: New South Wales (NSW)"
+            },
+            { 
+                src: "images/Tasmanian_Oak/Tasmanian_Oak (10).jpg", 
+                description: "Tasmanian Oak floor, New, Coated, Natural, Not Yellowed, Clean. Location: New South Wales (NSW)"
+            },
+            { 
+                src: "images/Tasmanian_Oak/Tasmanian_Oak (11).jpg", 
+                description: "Tasmanian Oak floor, New, Coated, Natural, Not Yellowed, Clean. Location: New South Wales (NSW)"
+            }
         ];
-
-        // Sort images with "new" first and "old" last
-        images.sort((a, b) => a.annotation.localeCompare(b.annotation));
 
         const gallery = document.getElementById('image-gallery');
         images.forEach(image => {
             const imgElement = document.createElement('img');
             imgElement.src = image.src;
             imgElement.className = 'thumbnail';
-            imgElement.title = image.description;  // Add description for tooltip
-            imgElement.onclick = () => openModal(imgElement);
+            imgElement.alt = image.description;  // Add alt text for accessibility
+            imgElement.onclick = () => openModal(image);
             gallery.appendChild(imgElement);
         });
 
-        function openModal(element) {
+        function openModal(image) {
             document.getElementById('myModal').style.display = "block";
-            document.getElementById('img01').src = element.src;
+            document.getElementById('img01').src = image.src;
+            document.getElementById('caption').textContent = image.description;
         }
 
         function closeModal() {
             document.getElementById('myModal').style.display = "none";
         }
     </script>
+
+    <h2>Timber Details</h2>
+    <p><strong>Name:</strong> Tasmanian Oak</p>
+    <p><strong>Botanical Name:</strong> Eucalyptus regnans, Eucalyptus obliqua, Eucalyptus delegatensis</p>
+    <p><strong>Alternate Names:</strong> Victorian Ash, Alpine Ash, Mountain Ash</p>
+    <p><strong>Location:</strong> Grown primarily in Tasmania, Victoria, and New South Wales</p>
+    <p><strong>Description:</strong> Tasmanian Oak is a popular flooring timber known for its light, warm colors ranging from pale cream to pink and reddish-brown. It has a straight grain pattern with a medium to coarse texture. It is moderately dense, making it durable yet easy to work with. This timber is common in Australia and is praised for its versatility and aesthetic appeal.</p>
+    <p><strong>Pros:</strong></p>
+    <ul>
+        <li>Durable and hard-wearing</li>
+        <li>Attractive color range</li>
+        <li>Easy to work with</li>
+        <li>Versatile for various applications</li>
+    </ul>
+    <p><strong>Cons:</strong></p>
+    <ul>
+        <li>May be prone to denting</li>
+        <li>Can darken over time with exposure to light</li>
+        <li>Moderate resistance to decay and termites</li>
+    </ul>
+    <p><strong>Scarcity:</strong> Readily available in Australia, with sustainable sourcing practices in place.</p>
 </body>
 </html>
