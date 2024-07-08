@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Spotted Gum</title>
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
     <style>
         .thumbnail {
             width: 150px;
@@ -26,21 +27,22 @@
             background-color: rgba(0,0,0,0.9);
         }
 
-        .modal-content {
-            margin: auto;
-            display: block;
+        .swiper-container {
             width: 80%;
             max-width: 700px;
+            margin: auto;
         }
 
-        .modal-content {
-            animation-name: zoom;
-            animation-duration: 0.6s;
+        .swiper-slide {
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
-        @keyframes zoom {
-            from {transform:scale(0)}
-            to {transform:scale(1)}
+        .swiper-slide img {
+            width: 100%;
+            height: auto;
         }
 
         .close {
@@ -78,12 +80,21 @@
     <!-- The Modal -->
     <div id="myModal" class="modal">
         <span class="close" onclick="closeModal()">&times;</span>
-        <img class="modal-content" id="img01">
-        <div id="caption" class="description"></div>
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+                <!-- Slides will be inserted here by JavaScript -->
+            </div>
+            <!-- Add Pagination -->
+            <div class="swiper-pagination"></div>
+            <!-- Add Navigation -->
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+        </div>
     </div>
 
     <a href="index.html">Back to Timber Species</a>
 
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script>
         const images = [
             { src: "images/Spotted_Gum/Spotted_Gum (1).jpg", description: "Spotted Gum floor, New, Coated, Natural, Not Yellowed, Clean. Location: New South Wales (NSW)" },
@@ -104,19 +115,45 @@
         ];
 
         const gallery = document.getElementById('image-gallery');
-        images.forEach(image => {
+        images.forEach((image, index) => {
             const imgElement = document.createElement('img');
             imgElement.src = image.src;
             imgElement.className = 'thumbnail';
             imgElement.alt = image.description;  // Add alt text for accessibility
-            imgElement.onclick = () => openModal(image);
+            imgElement.title = image.description;  // Add description for tooltip
+            imgElement.onclick = () => openModal(index);
             gallery.appendChild(imgElement);
         });
 
-        function openModal(image) {
+        function openModal(startIndex) {
             document.getElementById('myModal').style.display = "block";
-            document.getElementById('img01').src = image.src;
-            document.getElementById('caption').textContent = image.description;
+            const swiperWrapper = document.querySelector('.swiper-wrapper');
+            swiperWrapper.innerHTML = '';
+            images.forEach(image => {
+                const swiperSlide = document.createElement('div');
+                swiperSlide.className = 'swiper-slide';
+                const imgElement = document.createElement('img');
+                imgElement.src = image.src;
+                imgElement.alt = image.description;
+                swiperSlide.appendChild(imgElement);
+                swiperWrapper.appendChild(swiperSlide);
+            });
+
+            const swiper = new Swiper('.swiper-container', {
+                initialSlide: startIndex,
+                spaceBetween: 10,
+                slidesPerView: 1,
+                centeredSlides: true,
+                pagination: {
+                    el: '.swiper-pagination',
+                    clickable: true,
+                },
+                navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev',
+                },
+                zoom: true,
+            });
         }
 
         function closeModal() {
