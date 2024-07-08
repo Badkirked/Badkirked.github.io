@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Baltic Pine</title>
+    <style>
+        .thumbnail {
+            width: 150px;
+            height: auto;
+            cursor: pointer;
+            margin: 5px;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            padding-top: 60px;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgb(0,0,0);
+            background-color: rgba(0,0,0,0.9);
+        }
+
+        .modal-content {
+            margin: auto;
+            display: block;
+            width: 80%;
+            max-width: 700px;
+        }
+
+        .modal-content {
+            animation-name: zoom;
+            animation-duration: 0.6s;
+        }
+
+        @keyframes zoom {
+            from {transform:scale(0)}
+            to {transform:scale(1)}
+        }
+
+        .close {
+            position: absolute;
+            top: 15px;
+            right: 35px;
+            color: #f1f1f1;
+            font-size: 40px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #bbb;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .description {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Baltic Pine</h1>
+    <h2>Images</h2>
+    <div id="image-gallery">
+        <!-- Thumbnails will be inserted here by JavaScript -->
+    </div>
+
+    <div class="description">
+        <h2>Description</h2>
+        <p><strong>Timber Name:</strong> Baltic Pine</p>
+        <p><strong>Botanical Name:</strong> Pinus sylvestris</p>
+        <p><strong>Alternate Name:</strong> Scots Pine</p>
+        <p><strong>Location:</strong> Baltic Pine is commonly found in the Northern Hemisphere, especially in Europe and parts of Asia. It is extensively grown in Scandinavia and the Baltic region.</p>
+        <p><strong>Complete Description:</strong></p>
+        <p>Baltic Pine features a light, creamy-yellow to pale reddish-brown color. The grain is straight with a medium to coarse texture and prominent knots. It has a density of approximately 510 kg/m³ when dry, making it a moderately dense wood.</p>
+        <p><strong>Pros:</strong></p>
+        <ul>
+            <li>Light and easy to work with.</li>
+            <li>Readily available and cost-effective.</li>
+            <li>Attractive appearance with a warm, rustic look.</li>
+            <li>Good nail and screw holding properties.</li>
+        </ul>
+        <p><strong>Cons:</strong></p>
+        <ul>
+            <li>Not as hard as other timbers, making it prone to dents and scratches.</li>
+            <li>Can be susceptible to insect attacks if not treated properly.</li>
+            <li>Requires regular maintenance to keep it in good condition.</li>
+        </ul>
+        <p><strong>Scarcity:</strong> Baltic Pine is generally abundant and widely available, making it a popular choice for timber flooring and other woodworking projects.</p>
+    </div>
+
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <img class="modal-content" id="img01">
+    </div>
+
+    <a href="index.html">Back to Timber Species</a>
+
+    <script>
+        const images = [
+            { src: "images/Baltic_Pine/Baltic Pine (1).jpg", description: "Baltic Pine floor, New, Coated, Natural, Not Yellowed, Clean. Location: New South Wales (NSW)" },
+            { src: "images/Baltic_Pine/Baltic Pine (2).jpg", description: "Baltic Pine floor, Old, Coated, Natural, Not Yellowed, Dirty. Location: New South Wales (NSW)" },
+            { src: "images/Baltic_Pine/Baltic Pine (3).jpg", description: "Baltic Pine floor, New, Coated, Natural, Not Yellowed, Clean. Location: New South Wales (NSW)" },
+            { src: "images/Baltic_Pine/Baltic Pine (4).jpg", description: "Baltic Pine floor, New, Coated, Natural, Not Yellowed, Clean. Location: New South Wales (NSW)" },
+            { src: "images/Baltic_Pine/Baltic Pine (5).jpg", description: "Baltic Pine floor, New, Coated, Natural, Not Yellowed, Clean. Location: New South Wales (NSW)" },
+            { src: "images/Baltic_Pine/Baltic Pine (6).jpg", description: "Baltic Pine floor, New, Coated, Stained, Not Yellowed, Clean. Location: New South Wales (NSW)" },
+            { src: "images/Baltic_Pine/Baltic Pine (7).jpg", description: "Baltic Pine floor, New, Coated, Stained, Not Yellowed, Clean. Location: New South Wales (NSW)" },
+            { src: "images/Baltic_Pine/Baltic Pine (8).jpg", description: "Baltic Pine floor, New, Coated, Natural, Not Yellowed, Clean. Location: New South Wales (NSW)" },
+            { src: "images/Baltic_Pine/Baltic Pine (9).jpg", description: "Baltic Pine floor, New, Coated, Natural, Not Yellowed, Clean. Location: New South Wales (NSW)" },
+            { src: "images/Baltic_Pine/Baltic Pine (10).jpg", description: "Baltic Pine floor, New, Coated, Natural, Not Yellowed, Clean. Location: New South Wales (NSW)" },
+            { src: "images/Baltic_Pine/Baltic Pine (11).jpg", description: "Baltic Pine floor, Old, Coated, Natural, Yellowed, Dirty. Location: New South Wales (NSW)" },
+            { src: "images/Baltic_Pine/Baltic Pine (12).jpg", description: "Baltic Pine floor, New, Coated, Natural, Not Yellowed, Clean. Location: New South Wales (NSW)" },
+            { src: "images/Baltic_Pine/Baltic Pine (13).jpg", description: "Baltic Pine floor, New, Coated, Natural, Not Yellowed, Clean. Location: New South Wales (NSW)" },
+            { src: "images/Baltic_Pine/Baltic Pine (14).jpg", description: "Baltic Pine floor, New, Coated, Natural, Not Yellowed, Clean. Location: New South Wales (NSW)" },
+            { src: "images/Baltic_Pine/Baltic Pine (15).jpg", description: "Baltic Pine floor, New, Coated, Natural, Not Yellowed, Clean. Location: New South Wales (NSW)" },
+            { src: "images/Baltic_Pine/Baltic Pine (16).jpg", description: "Baltic Pine floor, New, Coated, Natural, Not Yellowed, Clean. Location: New South Wales (NSW)" },
+            { src: "images/Baltic_Pine/Baltic Pine (17).jpg", description: "Baltic Pine floor, New, Stained, Natural, Not Yellowed, Clean. Location: New South Wales (NSW)" },
+            { src: "images/Baltic_Pine/Baltic Pine (18).jpg", description: "Baltic Pine floor, New, Coated, Natural, Not Yellowed, Clean. Location: New South Wales (NSW)" }
+        ];
+
+        const gallery = document.getElementById('image-gallery');
+        images.forEach(image => {
+            const imgElement = document.createElement('img');
+            imgElement.src = image.src;
+            imgElement.className = 'thumbnail';
+            imgElement.alt = image.description;  // Add alt text for accessibility
+            imgElement.title = image.description;  // Add description for tooltip
+            imgElement.onclick = () => openModal(imgElement);
+            gallery.appendChild(imgElement);
+        });
+
+        function openModal(element) {
+            document.getElementById('myModal').style.display = "block";
+            document.getElementById('img01').src = element.src;
+        }
+
+        function closeModal() {
+            document.getElementById('myModal').style.display = "none";
+        }
+    </script>
+</body>
+</html>
