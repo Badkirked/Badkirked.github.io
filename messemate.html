@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Messmate</title>
+    <style>
+        .thumbnail {
+            width: 150px;
+            height: auto;
+            cursor: pointer;
+            margin: 5px;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            padding-top: 60px;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgb(0,0,0);
+            background-color: rgba(0,0,0,0.9);
+        }
+
+        .modal-content {
+            margin: auto;
+            display: block;
+            width: 80%;
+            max-width: 700px;
+        }
+
+        .modal-content {
+            animation-name: zoom;
+            animation-duration: 0.6s;
+        }
+
+        @keyframes zoom {
+            from {transform:scale(0)}
+            to {transform:scale(1)}
+        }
+
+        .close {
+            position: absolute;
+            top: 15px;
+            right: 35px;
+            color: #f1f1f1;
+            font-size: 40px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #bbb;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .description {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Messmate</h1>
+    <h2>Images</h2>
+    <div id="image-gallery">
+        <!-- Thumbnails will be inserted here by JavaScript -->
+    </div>
+
+    <div class="description">
+        <h2>Description</h2>
+        <p><strong>Timber Name:</strong> Messmate</p>
+        <p><strong>Botanical Name:</strong> Eucalyptus obliqua</p>
+        <p><strong>Alternate Names:</strong> Messmate Stringybark, Wormy Chestnut</p>
+        <p><strong>Location:</strong> Messmate is found in the southeastern regions of Australia, including Victoria, Tasmania, and parts of New South Wales and South Australia.</p>
+        <p><strong>Complete Description:</strong></p>
+        <p>Messmate timber varies in color from pale browns through to light yellows with subtle hints of peach. The grain is usually straight but can be interlocked or wavy, giving it a distinctive look. The texture is medium and even. It has a density of approximately 750 kg/m³ when dry, making it a moderately hard wood.</p>
+        <p>Messmate, also known as Wormy Chestnut, was once an inexpensive timber but became more valued through clever marketing. It was used as one of the main timbers to create Tasmanian Oak. The timber showcases an outstanding visual interest with subtle color tones, allowing each board to stand out while seamlessly blending with its neighbors.</p>
+        <p><strong>Pros:</strong></p>
+        <ul>
+            <li>Moderately durable and hard, suitable for flooring.</li>
+            <li>Attractive and unique appearance with color variation.</li>
+            <li>Good workability and machining properties.</li>
+            <li>Readily available in Australia.</li>
+        </ul>
+        <p><strong>Cons:</strong></p>
+        <ul>
+            <li>Can be prone to movement in service if not properly seasoned.</li>
+            <li>Moderate durability means it may require treatment for certain applications.</li>
+            <li>Color variation might not be to everyone's taste.</li>
+        </ul>
+        <p><strong>Scarcity:</strong> Messmate is generally abundant and widely available in Australia, making it a popular choice for timber flooring and other woodworking projects.</p>
+    </div>
+
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <img class="modal-content" id="img01">
+    </div>
+
+    <a href="index.html">Back to Timber Species</a>
+
+    <script>
+        const images = [
+            { src: "images/Messmate/Messmate (1).jpg", description: "Messmate floor, New, Coated, Natural, Not Yellowed, Clean. Location: Victoria" },
+            { src: "images/Messmate/Messmate (2).jpg", description: "Messmate floor, Old, Coated, Natural, Not Yellowed, Dirty. Location: Tasmania" },
+            { src: "images/Messmate/Messmate (3).jpg", description: "Messmate floor, New, Coated, Natural, Not Yellowed, Clean. Location: Victoria" },
+            { src: "images/Messmate/Messmate (4).jpg", description: "Messmate floor, New, Coated, Natural, Not Yellowed, Clean. Location: Victoria" },
+            { src: "images/Messmate/Messmate (5).jpg", description: "Messmate floor, New, Coated, Natural, Not Yellowed, Clean. Location: Victoria" },
+            { src: "images/Messmate/Messmate (6).jpg", description: "Messmate floor, New, Coated, Stained, Not Yellowed, Clean. Location: Victoria" },
+            { src: "images/Messmate/Messmate (7).jpg", description: "Messmate floor, New, Coated, Stained, Not Yellowed, Clean. Location: Victoria" },
+            { src: "images/Messmate/Messmate (8).jpg", description: "Messmate floor, New, Coated, Natural, Not Yellowed, Clean. Location: Victoria" },
+            { src: "images/Messmate/Messmate (9).jpg", description: "Messmate floor, New, Coated, Natural, Not Yellowed, Clean. Location: Victoria" },
+            { src: "images/Messmate/Messmate (10).jpg", description: "Messmate floor, New, Coated, Natural, Not Yellowed, Clean. Location: Victoria" }
+        ];
+
+        const gallery = document.getElementById('image-gallery');
+        images.forEach(image => {
+            const imgElement = document.createElement('img');
+            imgElement.src = image.src;
+            imgElement.className = 'thumbnail';
+            imgElement.alt = image.description;  // Add alt text for accessibility
+            imgElement.title = image.description;  // Add description for tooltip
+            imgElement.onclick = () => openModal(imgElement);
+            gallery.appendChild(imgElement);
+        });
+
+        function openModal(element) {
+            document.getElementById('myModal').style.display = "block";
+            document.getElementById('img01').src = element.src;
+        }
+
+        function closeModal() {
+            document.getElementById('myModal').style.display = "none";
+        }
+    </script>
+</body>
+</html>

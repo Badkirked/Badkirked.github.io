@@ -59,6 +59,10 @@
             text-decoration: none;
             cursor: pointer;
         }
+
+        .description {
+            margin-top: 20px;
+        }
     </style>
 </head>
 <body>
@@ -69,6 +73,26 @@
         <!-- Thumbnails will be inserted here by JavaScript -->
     </div>
 
+    <div class="description">
+        <h2>Timber Details</h2>
+        <p><strong>Name:</strong> Tallowood</p>
+        <p><strong>Botanical Name:</strong> Eucalyptus microcorys</p>
+        <p><strong>Alternate Names:</strong> N/A</p>
+        <p><strong>Location:</strong> Coastal regions from the Hunter River district in New South Wales to Maryborough and Fraser Island in Queensland</p>
+        <p><strong>Description:</strong> Tallowwood is a highly durable timber with heartwood that ranges from pale to dark yellow-brown, sometimes with olive green tinges. It has a distinctive greasy appearance, moderately coarse texture, and generally interlocked grain. This wood is commonly used in flooring due to its durability and attractive appearance.</p>
+        <p><strong>Pros:</strong></p>
+        <ul>
+            <li>Exceptionally durable with a long lifespan both in-ground and above ground.</li>
+            <li>Highly resistant to decay and performs well in damp conditions.</li>
+        </ul>
+        <p><strong>Cons:</strong></p>
+        <ul>
+            <li>Sapwood is susceptible to lyctid borer (powder post beetle) attack.</li>
+            <li>May require pre-drilling for nails and screws due to its density.</li>
+        </ul>
+        <p><strong>Scarcity:</strong> Tallowwood is generally available in Australia with sustainable sourcing practices in place.</p>
+    </div>
+
     <!-- The Modal -->
     <div id="myModal" class="modal">
         <span class="close" onclick="closeModal()">&times;</span>
@@ -77,49 +101,26 @@
 
     <a href="index.html">Back to Timber Species</a>
 
-    <ul>
-        <li>Tallowwood is a moderate to large tree found in wet sclerophyll forests along coastal regions from the Hunter River district in New South Wales to Maryborough and Fraser Island in Queensland.</li>
-        <li>The heartwood ranges in color from pale to dark yellow-brown, sometimes with tinges of olive green, while the sapwood is whitish.</li>
-        <li>Moderately coarse texture with generally interlocked grain.</li>
-        <li>Free of gum veins and lacks prominent figure but has a distinctive luster and a 'greasy' appearance.</li>
-        <li>Exceptionally durable timber with a life expectancy of over 25 years in-ground and over 40 years above ground.</li>
-        <li>Highly resistant to decay and performs well in damp and wet conditions.</li>
-        <li>Sapwood is susceptible to lyctid borer (powder post beetle) attack.</li>
-        <li>Untreated Tallowwood is equivalent to fire-retardant-treated timber according to AS/NZS 3837.</li>
-        <li>Historically used for bearings, mallet heads, mauls, wheel spokes, and tool handles.</li>
-        <li>Current applications include wharf and bridge construction, railway sleepers, cross-arms, poles, piles, mining timbers, and timber flooring.</li>
-        <li>Used in construction for unseasoned framing, dressed timber cladding, internal and external flooring, linings, and joinery.</li>
-        <li>Utilized in fencing, landscaping, and retaining wall construction.</li>
-        <li>Decorative uses include outdoor furniture, turnery, and joinery.</li>
-        <li>Other applications encompass boat building, coach and carriage construction, agricultural machinery, and structural plywood.</li>
-        <li>Commonly found in:
-            <ul>
-                <li>New South Wales: Hunter River district, North Coast (Coffs Harbour, Port Macquarie, Byron Bay), Sydney, Central Coast (Gosford, Wyong), Hunter Valley (Newcastle, Cessnock, Singleton)</li>
-                <li>Queensland: Maryborough, Fraser Island, Brisbane, Gold Coast, Sunshine Coast, Far North Queensland (Cairns, Townsville), Central Queensland (Rockhampton, Mackay)</li>
-            </ul>
-        </li>
-    </ul>
-
     <script>
         const images = [
-            { src: "images/Tallowood/Tallowood (1).jpg", description: "Tallowood floor, New, Coated, Natural, Not Yellowed, Clean. Location: New South Wales" },
-            { src: "images/Tallowood/Tallowood (2).jpg", description: "Tallowood floor, Old, Coated, Natural, Yellowed, Dirty. Location: New South Wales" },
-            { src: "images/Tallowood/Tallowood (3).jpg", description: "Tallowood floor, New, Coated, Natural, Not Yellowed, Clean. Location: New South Wales" },
-            { src: "images/Tallowood/Tallowood (4).jpg", description: "Tallowood floor, Old, Coated, Natural, Yellowed, Dirty. Location: New South Wales" },
-            { src: "images/Tallowood/Tallowood (5).jpg", description: "Tallowood floor, New, Coated, Natural, Not Yellowed, Clean. Location: New South Wales" },
-            { src: "images/Tallowood/Tallowood (6).jpg", description: "Tallowood floor, OLD, Coated, Natural, Yellowed, Dirty. Location: New South Wales" },
-            { src: "images/Tallowood/Tallowood (7).jpg", description: "Tallowood floor, New, Coated, Natural, Not Yellowed, Clean. Location: New South Wales" },
-            { src: "images/Tallowood/Tallowood (8).jpg", description: "Tallowood floor, Old, Coated, Natural, Yellowed, Dirty. Location: New South Wales" },
-            { src: "images/Tallowood/Tallowood (9).jpg", description: "Tallowood floor, New, Coated, Natural, Not Yellowed, Clean. Location: New South Wales" },
-            { src: "images/Tallowood/Tallowood (10).jpg", description: "Tallowood floor, New, Coated, Natural, Not Yellowed, Clean. Location: New South Wales" },
-            { src: "images/Tallowood/Tallowood (11).jpg", description: "Tallowood floor, New, Coated, Natural, Not Yellowed, Clean. Location: New South Wales" },
-            { src: "images/Tallowood/Tallowood (12).jpg", description: "Tallowood floor, New, Coated, Natural, Not Yellowed, Clean. Location: New South Wales" },
-            { src: "images/Tallowood/Tallowood (13).jpg", description: "Tallowood floor, New, Coated, Natural, Not Yellowed, Clean. Location: New South Wales" },
-            { src: "images/Tallowood/Tallowood (14).jpg", description: "Tallowood floor, New, Coated, Natural, Not Yellowed, Clean. Location: New South Wales" },
-            { src: "images/Tallowood/Tallowood (15).jpg", description: "Tallowood floor, New, Coated, Natural, Not Yellowed, Clean. Location: New South Wales" },
-            { src: "images/Tallowood/Tallowood (16).jpg", description: "Tallowood floor, New, Coated, Natural, Not Yellowed, Clean. Location: New South Wales" },
-            { src: "images/Tallowood/Tallowood (17).jpg", description: "Tallowood floor, Old, Coated, Natural, Yellowed, Dirty. Location: New South Wales" },
-            { src: "images/Tallowood/Tallowood (18).jpg", description: "Tallowood floor, New, Coated, Natural, Not Yellowed, Clean. Location: New South Wales" },
+            { src: "images/Tallowood/Tallowood (1).jpg", description: "Tallowwood floor, New, Coated, Natural, Not Yellowed, Clean. Location: New South Wales" },
+            { src: "images/Tallowood/Tallowood (2).jpg", description: "Tallowwood floor, Old, Coated, Natural, Yellowed, Dirty. Location: New South Wales" },
+            { src: "images/Tallowood/Tallowood (3).jpg", description: "Tallowwood floor, New, Coated, Natural, Not Yellowed, Clean. Location: New South Wales" },
+            { src: "images/Tallowood/Tallowood (4).jpg", description: "Tallowwood floor, Old, Coated, Natural, Yellowed, Dirty. Location: New South Wales" },
+            { src: "images/Tallowood/Tallowood (5).jpg", description: "Tallowwood floor, New, Coated, Natural, Not Yellowed, Clean. Location: New South Wales" },
+            { src: "images/Tallowood/Tallowood (6).jpg", description: "Tallowwood floor, Old, Coated, Natural, Yellowed, Dirty. Location: New South Wales" },
+            { src: "images/Tallowood/Tallowood (7).jpg", description: "Tallowwood floor, New, Coated, Natural, Not Yellowed, Clean. Location: New South Wales" },
+            { src: "images/Tallowood/Tallowood (8).jpg", description: "Tallowwood floor, Old, Coated, Natural, Yellowed, Dirty. Location: New South Wales" },
+            { src: "images/Tallowood/Tallowood (9).jpg", description: "Tallowwood floor, New, Coated, Natural, Not Yellowed, Clean. Location: New South Wales" },
+            { src: "images/Tallowood/Tallowood (10).jpg", description: "Tallowwood floor, New, Coated, Natural, Not Yellowed, Clean. Location: New South Wales" },
+            { src: "images/Tallowood/Tallowood (11).jpg", description: "Tallowwood floor, New, Coated, Natural, Not Yellowed, Clean. Location: New South Wales" },
+            { src: "images/Tallowood/Tallowood (12).jpg", description: "Tallowwood floor, New, Coated, Natural, Not Yellowed, Clean. Location: New South Wales" },
+            { src: "images/Tallowood/Tallowood (13).jpg", description: "Tallowwood floor, New, Coated, Natural, Not Yellowed, Clean. Location: New South Wales" },
+            { src: "images/Tallowood/Tallowood (14).jpg", description: "Tallowwood floor, New, Coated, Natural, Not Yellowed, Clean. Location: New South Wales" },
+            { src: "images/Tallowood/Tallowood (15).jpg", description: "Tallowwood floor, New, Coated, Natural, Not Yellowed, Clean. Location: New South Wales" },
+            { src: "images/Tallowood/Tallowood (16).jpg", description: "Tallowwood floor, New, Coated, Natural, Not Yellowed, Clean. Location: New South Wales" },
+            { src: "images/Tallowood/Tallowood (17).jpg", description: "Tallowwood floor, Old, Coated, Natural, Yellowed, Dirty. Location: New South Wales" },
+            { src: "images/Tallowood/Tallowood (18).jpg", description: "Tallowwood floor, New, Coated, Natural, Not Yellowed, Clean. Location: New South Wales" },
         ];
 
         const gallery = document.getElementById('image-gallery');

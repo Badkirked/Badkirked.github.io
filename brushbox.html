@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brushbox</title>
+    <style>
+        .thumbnail {
+            width: 150px;
+            height: auto;
+            cursor: pointer;
+            margin: 5px;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            padding-top: 60px;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgb(0,0,0);
+            background-color: rgba(0,0,0,0.9);
+        }
+
+        .modal-content {
+            margin: auto;
+            display: block;
+            width: 80%;
+            max-width: 700px;
+        }
+
+        .modal-content {
+            animation-name: zoom;
+            animation-duration: 0.6s;
+        }
+
+        @keyframes zoom {
+            from {transform:scale(0)}
+            to {transform:scale(1)}
+        }
+
+        .close {
+            position: absolute;
+            top: 15px;
+            right: 35px;
+            color: #f1f1f1;
+            font-size: 40px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #bbb;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .description {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Brushbox</h1>
+    <h2>Images</h2>
+    <div id="image-gallery">
+        <!-- Thumbnails will be inserted here by JavaScript -->
+    </div>
+
+    <div class="description">
+        <h2>Description</h2>
+        <p><strong>Timber Name:</strong> Brushbox</p>
+        <p><strong>Botanical Name:</strong> Lophostemon confertus</p>
+        <p><strong>Alternate Name:</strong> Queensland Brush Box</p>
+        <p><strong>Location:</strong> Brushbox is native to the east coast of Australia, particularly found in Queensland and New South Wales.</p>
+        <p><strong>Complete Description:</strong></p>
+        <p>Brushbox timber ranges from pale brown to pinkish brown, often with a hint of orange. The grain is usually interlocked, giving it a wavy appearance, and the texture is fine to medium. It has a density of approximately 900 kg/m³ when dry, making it a very dense and hard wood.</p>
+        <p><strong>Pros:</strong></p>
+        <ul>
+            <li>Very hard and durable, making it resistant to wear and tear.</li>
+            <li>Attractive appearance with rich, warm colors and interlocking grain.</li>
+            <li>Good dimensional stability.</li>
+            <li>Resistant to termites and other insects.</li>
+        </ul>
+        <p><strong>Cons:</strong></p>
+        <ul>
+            <li>Can be difficult to work with due to its hardness.</li>
+            <li>Interlocked grain can cause issues during machining.</li>
+            <li>High density makes it heavy and potentially more expensive to transport.</li>
+        </ul>
+        <p><strong>Scarcity:</strong> Brushbox is moderately available, with a sustainable supply when sourced from managed forests.</p>
+    </div>
+
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <img class="modal-content" id="img01">
+    </div>
+
+    <a href="index.html">Back to Timber Species</a>
+
+    <script>
+        const images = [
+            { src: "images/Brushbox/Brushbox (1).jpg", description: "Brushbox floor, New, Coated, Natural, Not Yellowed, Clean. Location: Queensland" },
+            { src: "images/Brushbox/Brushbox (2).jpg", description: "Brushbox floor, Old, Coated, Natural, Not Yellowed, Dirty. Location: New South Wales" },
+            { src: "images/Brushbox/Brushbox (3).jpg", description: "Brushbox floor, New, Coated, Natural, Not Yellowed, Clean. Location: Queensland" },
+            { src: "images/Brushbox/Brushbox (4).jpg", description: "Brushbox floor, New, Coated, Natural, Not Yellowed, Clean. Location: Queensland" },
+            { src: "images/Brushbox/Brushbox (5).jpg", description: "Brushbox floor, New, Coated, Natural, Not Yellowed, Clean. Location: Queensland" },
+            { src: "images/Brushbox/Brushbox (6).jpg", description: "Brushbox floor, New, Coated, Stained, Not Yellowed, Clean. Location: Queensland" },
+            { src: "images/Brushbox/Brushbox (7).jpg", description: "Brushbox floor, New, Coated, Stained, Not Yellowed, Clean. Location: Queensland" },
+            { src: "images/Brushbox/Brushbox (8).jpg", description: "Brushbox floor, New, Coated, Natural, Not Yellowed, Clean. Location: Queensland" },
+            { src: "images/Brushbox/Brushbox (9).jpg", description: "Brushbox floor, New, Coated, Natural, Not Yellowed, Clean. Location: Queensland" },
+            { src: "images/Brushbox/Brushbox (10).jpg", description: "Brushbox floor, New, Coated, Natural, Not Yellowed, Clean. Location: Queensland" }
+        ];
+
+        const gallery = document.getElementById('image-gallery');
+        images.forEach(image => {
+            const imgElement = document.createElement('img');
+            imgElement.src = image.src;
+            imgElement.className = 'thumbnail';
+            imgElement.alt = image.description;  // Add alt text for accessibility
+            imgElement.title = image.description;  // Add description for tooltip
+            imgElement.onclick = () => openModal(imgElement);
+            gallery.appendChild(imgElement);
+        });
+
+        function openModal(element) {
+            document.getElementById('myModal').style.display = "block";
+            document.getElementById('img01').src = element.src;
+        }
+
+        function closeModal() {
+            document.getElementById('myModal').style.display = "none";
+        }
+    </script>
+</body>
+</html>
